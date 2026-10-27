@@ -90,7 +90,10 @@ button { font: inherit; color: inherit; }
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(230, 0, 255, .25);
 }
-.workspaces { display: flex; gap: 6px; }
+.workspaces { display: flex; align-items: center; gap: 6px; }
+.brand { display: block; width: 30px; height: 30px; margin-right: 6px; border-radius: 50%; transition: transform .25s, filter .25s; }
+.brand img { width: 100%; height: 100%; }
+.brand:hover { transform: rotate(-8deg) scale(1.08); filter: drop-shadow(0 0 10px rgba(230, 0, 255, .6)); }
 .ws {
   display: flex; align-items: center; gap: 8px; height: 30px; padding: 0 10px; border-radius: 8px;
   color: var(--cyan); background: rgba(0, 240, 255, .07); font-size: 13px; transition: background .25s, color .25s;
@@ -303,7 +306,8 @@ h2 { margin: 0; font: 800 clamp(30px, 5vw, 52px)/1.05 var(--mono); letter-spacin
   font: 800 14px var(--display); letter-spacing: .2em; color: var(--text); box-shadow: 0 0 20px rgba(230, 0, 255, .25) inset;
 }
 .lock-actions { display: grid; grid-template-columns: auto 1fr; gap: 14px; margin-top: 16px; }
-.user-pill { display: grid; place-items: center; padding: 0 22px; border-radius: 999px; background: rgba(0, 240, 255, .07); color: var(--cyan); font: 800 13px var(--display); letter-spacing: .14em; }
+.user-pill img { width: 34px; height: 34px; border-radius: 50%; }
+.user-pill { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 0 20px 0 10px; border-radius: 999px; background: rgba(0, 240, 255, .07); color: var(--cyan); font: 800 13px var(--display); letter-spacing: .14em; }
 .unlock { min-height: 54px; }
 .socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; margin-top: 20px; font-size: 13px; }
 

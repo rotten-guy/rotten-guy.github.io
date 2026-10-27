@@ -45,6 +45,12 @@
 
 ---
 
+## 🔣 Logos
+
+The site's logo is **`>_`** (favicon, nav bar, 404); the personal logo **rotten / guy>_** sits on the contact card. Both are drawn by `scripts/make-logo.py` in the [profile repository](https://github.com/PoUrRiTuRe/PoUrRiTuRe) and copied here.
+
+---
+
 ## 🎨 Palette
 
 Same colors as the rice (see `assets/cheatsheet.html` in the dotfiles):
@@ -72,8 +78,8 @@ PoUrRiTuRe.github.io/
 ├── 404.html
 ├── .nojekyll                   # serve files as they are, no Jekyll
 └── assets/
-    ├── icons/favicon.svg
-    └── img/                    # screenshots (webp), keymap SVGs, screens GIF, preview + og image
+    ├── icons/                  # ">_" site logo: favicon.svg, apple-touch-icon.png, icon-512.png
+    └── img/                    # screenshots (webp), keymap SVGs, screens GIF, avatar.svg, preview + og image
 ```
 
 ---
