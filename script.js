@@ -143,15 +143,15 @@ const menu = (() => {
     { label: "skills", hint: "workspace 3", go: "#skills" },
     { label: "history", hint: "workspace 4", go: "#history" },
     { label: "contact", hint: "workspace 5", go: "#contact" },
-    { label: "rotten_dotfiles", hint: "repo · Hyprland rice", url: "https://github.com/PoUrRiTuRe/dotfiles" },
-    { label: "rotten Lily58", hint: "repo · ZMK firmware", url: "https://github.com/PoUrRiTuRe/rotten_lily58_keymap_config" },
-    { label: "ZMK dongle guide", hint: "write-up", url: "https://github.com/PoUrRiTuRe/dotfiles/blob/main/docs/zmk-dongle.md" },
-    { label: "IKEv2 VPN on Arch", hint: "write-up", url: "https://github.com/PoUrRiTuRe/dotfiles/blob/main/docs/vpn-ikev2-eap.md" },
-    { label: "Tablet as a monitor", hint: "write-up", url: "https://github.com/PoUrRiTuRe/dotfiles/blob/main/docs/tablet-screen.md" },
-    { label: "GitHub profile", hint: "link", url: "https://github.com/PoUrRiTuRe" },
+    { label: "rotten_dotfiles", hint: "repo · Hyprland rice", url: "https://github.com/rotten-guy/dotfiles" },
+    { label: "rotten Lily58", hint: "repo · ZMK firmware", url: "https://github.com/rotten-guy/rotten_lily58_keymap_config" },
+    { label: "ZMK dongle guide", hint: "write-up", url: "https://github.com/rotten-guy/dotfiles/blob/main/docs/zmk-dongle.md" },
+    { label: "IKEv2 VPN on Arch", hint: "write-up", url: "https://github.com/rotten-guy/dotfiles/blob/main/docs/vpn-ikev2-eap.md" },
+    { label: "Tablet as a monitor", hint: "write-up", url: "https://github.com/rotten-guy/dotfiles/blob/main/docs/tablet-screen.md" },
+    { label: "GitHub profile", hint: "link", url: "https://github.com/rotten-guy" },
     { label: "Root-Me", hint: "training · security", url: "https://www.root-me.org/" },
     { label: "LeetCode", hint: "training · algorithms", url: "https://leetcode.com/pourriture" },
-    { label: "source of this site", hint: "repo", url: "https://github.com/PoUrRiTuRe/PoUrRiTuRe.github.io" },
+    { label: "source of this site", hint: "repo", url: "https://github.com/rotten-guy/rotten-guy.github.io" },
   ];
   let shown = items, sel = 0;
   const render = () => {

@@ -6,7 +6,7 @@
 
 *Plain HTML · CSS · JS · no framework, no build step · GitHub Pages*
 
-**[pourriture.github.io](https://pourriture.github.io)**
+**[rotten-guy.github.io](https://rotten-guy.github.io)**
 
 </div>
 
@@ -38,8 +38,8 @@
 
 | Project | Kind | Stack |
 |---|---|---|
-| [**rotten_dotfiles**](https://github.com/PoUrRiTuRe/dotfiles) | Personal | Arch Linux, Hyprland (Lua), Bash, Python, QML, systemd, PAM, PipeWire |
-| [**rotten Lily58**](https://github.com/PoUrRiTuRe/rotten_lily58_keymap_config) | Personal | C, Zephyr RTOS, ZMK, Devicetree, Python, GitHub Actions |
+| [**rotten_dotfiles**](https://github.com/rotten-guy/dotfiles) | Personal | Arch Linux, Hyprland (Lua), Bash, Python, QML, systemd, PAM, PipeWire |
+| [**rotten Lily58**](https://github.com/rotten-guy/rotten_lily58_keymap_config) | Personal | C, Zephyr RTOS, ZMK, Devicetree, Python, GitHub Actions |
 | Write-ups | Personal | ZMK dongle, IKEv2 VPN, tablet as a monitor, Arch notes (in the dotfiles `docs/`) |
 | Training | In progress | [Root-Me](https://www.root-me.org/) (security challenges) · [LeetCode](https://leetcode.com/pourriture) (algorithms) |
 
@@ -47,7 +47,7 @@
 
 ## 🔣 Logos
 
-The site's logo is **`>_`** (favicon, nav bar, 404); the personal logo **rotten / guy>_** sits on the contact card. Both are drawn by `scripts/make-logo.py` in the [profile repository](https://github.com/PoUrRiTuRe/PoUrRiTuRe) and copied here.
+The site's logo is **`>_`** (favicon, nav bar, 404); the personal logo **rotten / guy>_** sits on the contact card. Both are drawn by `scripts/make-logo.py` in the [profile repository](https://github.com/rotten-guy/rotten-guy) and copied here.
 
 ---
 
@@ -71,7 +71,7 @@ Fonts: **JetBrains Mono** (everything) and **Outfit** (neon titles, close to the
 ## 📁 Repository layout
 
 ```
-PoUrRiTuRe.github.io/
+rotten-guy.github.io/
 ├── index.html                  # the whole site, one page, 5 "workspaces"
 ├── style.css                   # Nebula theme
 ├── script.js                   # starfield, clock, workspaces, SUPER + K menu, galleries
@@ -95,7 +95,7 @@ python3 -m http.server 8000
 
 ## 🌐 Deploying
 
-GitHub Pages serves the `main` branch root: *Settings* → *Pages* → *Deploy from a branch* → `main` / `/ (root)`. Every push to `main` is online a minute later at **https://pourriture.github.io**.
+GitHub Pages serves the `main` branch root: *Settings* → *Pages* → *Deploy from a branch* → `main` / `/ (root)`. Every push to `main` is online a minute later at **https://rotten-guy.github.io**.
 
 ---
 
@@ -113,6 +113,6 @@ GitHub Pages serves the `main` branch root: *Settings* → *Pages* → *Deploy f
 
 ## 🙏 Credits
 
-- Screenshots and keymap pictures from [rotten_dotfiles](https://github.com/PoUrRiTuRe/dotfiles).
+- Screenshots and keymap pictures from [rotten_dotfiles](https://github.com/rotten-guy/dotfiles).
 - Fonts: [JetBrains Mono](https://www.jetbrains.com/lp/mono/) and [Outfit](https://fonts.google.com/specimen/Outfit) (SIL Open Font License).
 - Built with the help of **[Claude](https://claude.ai)** (Anthropic), like the rice it shows off.
