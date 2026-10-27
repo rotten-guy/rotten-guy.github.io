@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>rotten_guy · Joshua Gillet</title>
+<meta name="description" content="Portfolio of Joshua Gillet (rotten_guy): networks &amp; telecoms student, Arch Linux ricer and keyboard tinkerer. Neon cyan / magenta, set against a nebula.">
+<meta name="theme-color" content="#070914">
+<meta property="og:title" content="rotten_guy · Joshua Gillet">
+<meta property="og:description" content="Networks &amp; telecoms student, Arch Linux ricer, keyboard tinkerer.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pourriture.github.io/">
+<meta property="og:image" content="https://pourriture.github.io/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;0,800;1,400&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<div class="nebula" aria-hidden="true"><span></span><span></span><span></span></div>
+
+<!-- ───────────── top bar (Serpantinum-like) ───────────── -->
+<header class="bar">
+  <nav class="workspaces" aria-label="Sections">
+    <a href="#home" data-ws="1" class="ws active"><b>1</b><span>home</span></a>
+    <a href="#projects" data-ws="2" class="ws"><b>2</b><span>projects</span></a>
+    <a href="#skills" data-ws="3" class="ws"><b>3</b><span>skills</span></a>
+    <a href="#history" data-ws="4" class="ws"><b>4</b><span>history</span></a>
+    <a href="#contact" data-ws="5" class="ws"><b>5</b><span>contact</span></a>
+  </nav>
+  <div class="clock" aria-hidden="true">
+    <span id="clock-time">--:--:--</span>
+    <small id="clock-date">nebula time</small>
+  </div>
+  <div class="status">
+    <span class="pill pill-dim">EN</span>
+    <button class="pill pill-magenta" id="open-menu" type="button" title="Search everything (K)"><kbd>SUPER</kbd><span>+</span><kbd>K</kbd></button>
+    <a class="pill pill-cyan" href="https://github.com/PoUrRiTuRe" target="_blank" rel="noopener" title="GitHub">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      <span>PoUrRiTuRe</span>
+    </a>
+  </div>
+</header>
+
+<main>
+<!-- ───────────── 1 · home ───────────── -->
+<section id="home" class="hero" data-ws="1">
+  <div class="hero-left">
+    <p class="kicker reveal">QUICK SETTINGS · <span>whoami</span></p>
+    <h1 class="neon reveal">
+      <span class="neon-cyan">JOSHUA</span>
+      <span class="neon-magenta">GILLET</span>
+    </h1>
+    <p class="date-pill reveal">rotten_guy</p>
+    <p class="lead reveal">
+      Networks &amp; telecoms student at the <b>IUT of Montbéliard</b> (BUT R&amp;T).
+      I like taking systems apart until I understand them, then putting them back together <i>exactly</i> the way I want:
+      Linux desktops, wireless keyboards, web apps and the networks they run on.
+    </p>
+    <div class="cta reveal">
+      <a class="btn btn-cyan" href="#projects">VIEW PROJECTS <span aria-hidden="true">→</span></a>
+      <a class="btn btn-ghost" href="#contact">GET IN TOUCH</a>
+    </div>
+  </div>
+
+  <div class="win win-focus hero-term reveal" aria-label="Terminal showing a fastfetch summary">
+    <div class="win-title"><span class="dots"><i></i><i></i><i></i></span><span>kitty · ~</span><span></span></div>
+    <div class="term">
+      <div class="fetch">
+        <pre class="logo" aria-hidden="true">
+      /\
+     /  \
+    /    \
+   /      \
+  /   ,,   \
+ /   |  |   \
+/_-''    ''-_\</pre>
+        <dl>
+          <div><dt class="c-cyan">USR</dt><dd>rotten_guy</dd></div>
+          <div class="gap"></div>
+          <div><dt class="c-yellow">HN</dt><dd>Joshua Gillet</dd></div>
+          <div><dt class="c-yellow">EDU</dt><dd>BUT Networks &amp; Telecoms</dd></div>
+          <div><dt class="c-cyan">OS</dt><dd>Arch Linux x86_64</dd></div>
+          <div><dt class="c-magenta">DE</dt><dd>Hyprland (Lua config)</dd></div>
+          <div><dt class="c-magenta">SH</dt><dd>zsh + starship</dd></div>
+          <div class="gap"></div>
+          <div><dt class="c-green">ED</dt><dd>LazyVim</dd></div>
+          <div><dt class="c-green">KB</dt><dd>Lily58 · ZMK · wireless</dd></div>
+          <div><dt class="c-yellow">CPU</dt><dd>coffee @ 4.60 GHz</dd></div>
+        </dl>
+      </div>
+      <div class="palette" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="prompt" aria-hidden="true">
+        <span class="seg seg-os">▲</span><span class="seg-line"></span>
+        <span class="seg seg-dir">~/portfolio</span><span class="seg-line"></span>
+        <span class="seg seg-git">main</span><span class="seg-line grow"></span>
+        <span class="seg seg-time" id="prompt-time">00:00:00</span>
+      </div>
+      <div class="cmdline"><span class="c-green">❯</span> <span id="typed"></span><span class="caret"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── 2 · projects ───────────── -->
+<section id="projects" data-ws="2">
+  <div class="section-head reveal">
+    <p class="path">~/projects</p>
+    <h2 class="grad">PROJECTS</h2>
+    <div class="filters" role="tablist" aria-label="Filter projects">
+      <button class="chip active" data-filter="all" type="button">all</button>
+      <button class="chip" data-filter="personal" type="button">personal</button>
+      <button class="chip" data-filter="academic" type="button">academic</button>
+    </div>
+  </div>
+
+  <!-- dotfiles -->
+  <article class="project win reveal" data-kind="personal">
+    <div class="win-title"><span class="dots"><i></i><i></i><i></i></span><span>rotten_dotfiles · personal</span><span class="tag tag-cyan">featured</span></div>
+    <div class="project-body">
+      <div class="gallery" data-gallery>
+        <div class="gallery-tabs" role="tablist">
+          <button class="active" type="button" data-src="assets/img/terminal.webp" data-alt="kitty terminal with fastfetch under the top bar">terminal</button>
+          <button type="button" data-src="assets/img/greeter.webp" data-alt="nebula SDDM greeter with a neon clock">greeter</button>
+          <button type="button" data-src="assets/img/dolphin.webp" data-alt="Dolphin file manager with the Nebula Kvantum theme">dolphin</button>
+          <button type="button" data-src="assets/img/cheatsheet.webp" data-alt="Generated cheatsheet of every keyboard shortcut">shortcuts</button>
+        </div>
+        <button class="shot" type="button" data-zoom><img src="assets/img/terminal.webp" alt="kitty terminal with fastfetch under the top bar" loading="lazy" width="1600" height="900"></button>
+      </div>
+      <div class="project-text">
+        <h3>🌌 rotten_dotfiles</h3>
+        <p class="sub">A neon cyan / magenta Hyprland rice, set against a nebula.</p>
+        <p>My daily-driver Arch Linux desktop, versioned and reproducible on two machines (a ThinkPad P53 with an NVIDIA GPU and an AMD desktop). It started as a backup script and grew into a full theme, with its own login screen, scripts and documentation.</p>
+        <ul class="feat">
+          <li><b>Fingerprint login</b> on the SDDM greeter and the lock screen, with a pulsing ring animation (PAM + <code>fprintd</code>)</li>
+          <li><b>Animated window borders</b>: cyan → magenta gradient, constant-speed rotation (the one around this card)</li>
+          <li><b>Backup &amp; restore tooling</b>: <code>save-all.sh</code> syncs both machines, <code>check-rice.sh</code> repairs what updates reset</li>
+          <li><b>NVIDIA sleep fix</b>: systemd units pause Hyprland during suspend so the driver wakes up cleanly</li>
+          <li><b>PipeWire audio chain</b> replacing Voicemeeter: RNNoise, high-pass and EQ on the microphone</li>
+          <li><b>Generated cheatsheet</b>: every shortcut rendered from the Lua config by a Python script</li>
+        </ul>
+        <div class="stats">
+          <div><b data-count="146">146</b><span>commits</span></div>
+          <div><b data-count="49">49</b><span>pull requests</span></div>
+          <div><b data-count="11">11</b><span>scripts</span></div>
+          <div><b data-count="2">2</b><span>machines</span></div>
+        </div>
+        <div class="tags"><span>Arch Linux</span><span>Hyprland · Lua</span><span>Bash</span><span>Python</span><span>QML</span><span>systemd</span><span>PAM</span><span>PipeWire</span></div>
+        <a class="btn btn-cyan" href="https://github.com/PoUrRiTuRe/dotfiles" target="_blank" rel="noopener">OPEN REPOSITORY <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </article>
+
+  <!-- lily58 -->
+  <article class="project win reveal" data-kind="personal">
+    <div class="win-title"><span class="dots"><i></i><i></i><i></i></span><span>rotten_lily58 · personal</span><span class="tag tag-magenta">firmware</span></div>
+    <div class="project-body reverse">
+      <div class="gallery" data-gallery>
+        <div class="gallery-tabs" role="tablist">
+          <button class="active" type="button" data-src="assets/img/keymap-base.svg" data-alt="Lily58 base layer">base</button>
+          <button type="button" data-src="assets/img/keymap-lower.svg" data-alt="Lily58 lower layer">lower</button>
+          <button type="button" data-src="assets/img/keymap-raise.svg" data-alt="Lily58 raise layer">raise</button>
+          <button type="button" data-src="assets/img/bongo-glasses.webp" data-alt="Bongo cat with rectangular and thug glasses">glasses</button>
+        </div>
+        <button class="shot" type="button" data-zoom><img src="assets/img/keymap-base.svg" alt="Lily58 base layer" loading="lazy" width="1046" height="509"></button>
+        <figure class="oled">
+          <img src="assets/img/lily58-screens.gif" alt="Preview of both custom nice!view screens: bongo cat on the left, Arch logo and spinning cube on the right" loading="lazy" width="498" height="642">
+          <figcaption>screen preview · bongo cat taps in sync with the keys</figcaption>
+        </figure>
+      </div>
+      <div class="project-text">
+        <h3>⌨️ rotten Lily58</h3>
+        <p class="sub">Wireless split keyboard, custom ZMK firmware and screens.</p>
+        <p>A Lily58 (two nice!nano v2, two nice!view e-paper screens, Choc hotswap) running my own ZMK configuration. I wrote a custom display shield in C on top of Zephyr: the stock WPM graph is replaced by an animated bongo cat that types along with me.</p>
+        <ul class="feat">
+          <li><b>Left screen</b>: bongo cat with glasses, mirrored paws, hold detection on modifiers and a 60 ms lift on repeated keys</li>
+          <li><b>Right screen</b>: Arch Linux logo, spinning wireframe cube and an atom, paused when the display sleeps</li>
+          <li><b>Easter egg</b>: Esc + both inner keys swap to thug glasses, saved across reboots, nothing sent to the computer</li>
+          <li><b>Sprite pipeline</b>: Python tools turn ASCII pixel art into C arrays and render a preview GIF</li>
+          <li><b>4 Bluetooth profiles</b> (desktop, laptop, work, phone), firmware built by GitHub Actions</li>
+        </ul>
+        <div class="tags"><span>C</span><span>Zephyr RTOS</span><span>ZMK</span><span>Devicetree</span><span>Python</span><span>GitHub Actions</span><span>Bluetooth LE</span></div>
+        <a class="btn btn-magenta" href="https://github.com/PoUrRiTuRe/rotten_lily58_keymap_config" target="_blank" rel="noopener">OPEN REPOSITORY <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </article>
+
+  <!-- SAE 2.03 -->
+  <article class="project win reveal" data-kind="academic">
+    <div class="win-title"><span class="dots"><i></i><i></i><i></i></span><span>SAE 2.03 · academic</span><span class="tag tag-yellow">BUT R&amp;T</span></div>
+    <div class="project-body">
+      <div class="gallery" data-gallery>
+        <div class="gallery-tabs" role="tablist">
+          <button class="active" type="button" data-src="assets/img/sae-schema.svg" data-alt="Relational data model of the carpooling app">data model</button>
+          <button type="button" data-src="assets/img/sae-accueil.webp" data-alt="Covoit home page once logged in">home</button>
+          <button type="button" data-src="assets/img/sae-sign.webp" data-alt="Covoit sign-up form">sign-up</button>
+          <button type="button" data-src="assets/img/sae-recherche.webp" data-alt="Covoit crew search page">search</button>
+        </div>
+        <button class="shot" type="button" data-zoom><img src="assets/img/sae-schema.svg" alt="Relational data model of the carpooling app" loading="lazy" width="1120" height="780"></button>
+      </div>
+      <div class="project-text">
+        <h3>🚗 Covoit · student carpooling</h3>
+        <p class="sub">SAE 2.03, first-year university project (spring 2026).</p>
+        <p>A web app that lets students of the Portes du Jura campus find each other and share rides to university: fewer costs, fewer cars, more people met. Full stack, from the relational schema to the pages, served by Apache on Ubuntu.</p>
+        <ul class="feat">
+          <li><b>Accounts</b>: sign-up with course, group and sub-group, passwords stored with <code>password_hash</code>, PHP sessions</li>
+          <li><b>Password reset</b> through a one-time 256-bit token (<code>random_bytes</code>) sent as a link</li>
+          <li><b>Offer a ride</b>: vehicle, free seats and weekly schedule</li>
+          <li><b>Search &amp; join a crew</b>, with a duplicate check, then confirm the outbound and return trips</li>
+          <li><b>11-table MySQL schema</b>, every query a PDO prepared statement (no SQL injection)</li>
+        </ul>
+        <div class="tags"><span>PHP</span><span>MySQL</span><span>PDO</span><span>SQL</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Apache</span></div>
+        <a class="btn btn-cyan" href="https://github.com/PoUrRiTuRe/SAE_2-03" target="_blank" rel="noopener">OPEN REPOSITORY <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </article>
+
+  <!-- write-ups -->
+  <div class="guides reveal" data-kind="personal">
+    <p class="path">~/dotfiles/docs · write-ups</p>
+    <div class="guide-grid">
+      <a class="guide win" href="https://github.com/PoUrRiTuRe/dotfiles/blob/main/docs/zmk-dongle.md" target="_blank" rel="noopener">
+        <span class="g-ico">🔌</span><b>Solder-free ZMK dongle</b><span>Illustrated guide: turn a spare nice!nano into a USB dongle for the Lily58.</span>
+      </a>
+      <a class="guide win" href="https://github.com/PoUrRiTuRe/dotfiles/blob/main/docs/vpn-ikev2-eap.md" target="_blank" rel="noopener">
+        <span class="g-ico">🛡️</span><b>IKEv2 + EAP VPN on Arch</b><span>University / company VPN with strongSwan and <code>nmcli</code>, plus troubleshooting.</span>
+      </a>
+      <a class="guide win" href="https://github.com/PoUrRiTuRe/dotfiles/blob/main/docs/tablet-screen.md" target="_blank" rel="noopener">
+        <span class="g-ico">📱</span><b>Tablet as a third monitor</b><span>Android tablet over Sunshine + Moonlight, started and stopped from the tablet.</span>
+      </a>
+      <a class="guide win" href="https://github.com/PoUrRiTuRe/dotfiles/blob/main/docs/arch-notes.md" target="_blank" rel="noopener">
+        <span class="g-ico">📒</span><b>Arch notes</b><span>rsync backups, NTFS drives, kernel updates, fingerprint, Bluetooth pairing, WSL.</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── 3 · skills ───────────── -->
+<section id="skills" data-ws="3">
+  <div class="section-head reveal">
+    <p class="path">~/.config/skills</p>
+    <h2 class="grad">SKILLS</h2>
+    <p class="hint">Magenta keys = the ones I use every day.</p>
+  </div>
+  <div class="skill-grid">
+    <div class="card reveal">
+      <h3>Networks &amp; systems</h3>
+      <div class="keys">
+        <span class="key super">Linux</span><span class="key super">Arch</span><span class="key">systemd</span><span class="key">SSH</span>
+        <span class="key">TCP/IP</span><span class="key">VPN · IKEv2</span><span class="key">NetworkManager</span><span class="key">Bluetooth · BlueZ</span>
+        <span class="key">PAM</span><span class="key">Apache</span><span class="key">Docker</span><span class="key">WSL · Kali</span>
+      </div>
+    </div>
+    <div class="card reveal">
+      <h3>Languages</h3>
+      <div class="keys">
+        <span class="key super">Bash</span><span class="key super">Python</span><span class="key super">Lua</span><span class="key">C</span>
+        <span class="key">C++</span><span class="key">PHP</span><span class="key">SQL</span><span class="key">HTML</span>
+        <span class="key">CSS</span><span class="key">JavaScript</span><span class="key">TypeScript</span><span class="key">QML</span>
+      </div>
+    </div>
+    <div class="card reveal">
+      <h3>Tools</h3>
+      <div class="keys">
+        <span class="key super">Git</span><span class="key super">GitHub</span><span class="key super">Neovim</span><span class="key">GitHub Actions</span>
+        <span class="key">MySQL</span><span class="key">Node.js</span><span class="key">kitty · zsh</span><span class="key">Claude Code</span>
+      </div>
+    </div>
+    <div class="card reveal">
+      <h3>Hardware</h3>
+      <div class="keys">
+        <span class="key super">ZMK</span><span class="key">Zephyr RTOS</span><span class="key">nice!nano</span><span class="key">e-paper</span>
+        <span class="key">Arduino</span><span class="key">Split keyboards</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── 4 · history ───────────── -->
+<section id="history" data-ws="4">
+  <div class="section-head reveal">
+    <p class="path">git log --graph --oneline</p>
+    <h2 class="grad">HISTORY</h2>
+  </div>
+  <ol class="log">
+    <li class="reveal"><span class="hash">808efa0</span><time>2026-10</time><b>feat(lily58):</b> custom nice!view screens, bongo cat with glasses, thug-glasses easter egg</li>
+    <li class="reveal"><span class="hash">0a72831</span><time>2026-10</time><b>feat(dotfiles):</b> per-host configs for a second machine (AMD desktop)</li>
+    <li class="reveal"><span class="hash">486925a</span><time>2026-09</time><b>init(dotfiles):</b> a backup script that turned into the Nebula rice</li>
+    <li class="reveal merge"><span class="hash">51f4426</span><time>2026-04</time><b>feat(sae-2.03):</b> Covoit, student carpooling web app (PHP / MySQL)</li>
+    <li class="reveal"><span class="hash">·······</span><time>2025-09</time><b>start:</b> BUT Networks &amp; Telecoms, IUT of Montbéliard</li>
+    <li class="reveal root"><span class="hash">·······</span><time>2024-04</time><b>root:</b> <code>git init</code> · first GitHub account</li>
+  </ol>
+</section>
+
+<!-- ───────────── 5 · contact ───────────── -->
+<section id="contact" data-ws="5">
+  <div class="lock win win-focus reveal">
+    <div class="lock-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M6 11h12v10H6zM8 11V7a4 4 0 0 1 8 0v4"/></svg><b>CONTACT</b><span>· now</span></div>
+    <h2>Let's build something.</h2>
+    <p>Internship, project, question about the rice or the keyboard: my inbox is the GitHub one.</p>
+    <div class="lock-field">CONNECTION REQUIRED</div>
+    <div class="lock-actions">
+      <span class="user-pill">ROTTEN_GUY</span>
+      <a class="btn btn-cyan unlock" href="https://github.com/PoUrRiTuRe" target="_blank" rel="noopener">GITHUB <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="socials">
+      <a href="https://github.com/PoUrRiTuRe" target="_blank" rel="noopener">github.com/PoUrRiTuRe</a>
+      <a href="https://leetcode.com/pourriture" target="_blank" rel="noopener">leetcode.com/pourriture</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p><span class="grad">rotten_portfolio</span> · Nebula theme · hand-written HTML / CSS / JS, no framework · hosted on GitHub Pages</p>
+  <p class="dim">Press <kbd>1</kbd>…<kbd>5</kbd> to switch workspace, <kbd>K</kbd> to search.</p>
+</footer>
+
+<!-- fuzzel-like menu -->
+<div class="menu" id="menu" hidden>
+  <div class="menu-box win win-focus" role="dialog" aria-modal="true" aria-label="Search">
+    <input id="menu-input" type="text" placeholder="search a section, a project, a link…" autocomplete="off" spellcheck="false">
+    <ul id="menu-list" role="listbox"></ul>
+    <p class="menu-foot"><kbd>↑↓</kbd> move · <kbd>Enter</kbd> open · <kbd>Esc</kbd> close</p>
+  </div>
+</div>
+
+<!-- lightbox -->
+<div class="lightbox" id="lightbox" hidden><img alt=""><button type="button" aria-label="Close">✕</button></div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
