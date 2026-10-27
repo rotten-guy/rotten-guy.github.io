@@ -41,7 +41,7 @@
 | [**rotten_dotfiles**](https://github.com/rotten-guy/dotfiles) | Personal | Arch Linux, Hyprland (Lua), Bash, Python, QML, systemd, PAM, PipeWire |
 | [**rotten Lily58**](https://github.com/rotten-guy/rotten_lily58_keymap_config) | Personal | C, Zephyr RTOS, ZMK, Devicetree, Python, GitHub Actions |
 | Write-ups | Personal | ZMK dongle, IKEv2 VPN, tablet as a monitor, Arch notes (in the dotfiles `docs/`) |
-| Training | In progress | [Root-Me](https://www.root-me.org/rotten-guy?lang=en) (security challenges) · [LeetCode](https://leetcode.com/u/PoUrRiTuRe/) (algorithms) |
+| Training | In progress | [Root-Me](https://www.root-me.org/rotten-guy?lang=en) (security challenges) · [LeetCode](https://leetcode.com/u/rotten-guy/) (algorithms) |
 
 ---
 
