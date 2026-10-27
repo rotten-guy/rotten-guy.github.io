@@ -149,8 +149,8 @@ const menu = (() => {
     { label: "IKEv2 VPN on Arch", hint: "write-up", url: "https://github.com/rotten-guy/dotfiles/blob/main/docs/vpn-ikev2-eap.md" },
     { label: "Tablet as a monitor", hint: "write-up", url: "https://github.com/rotten-guy/dotfiles/blob/main/docs/tablet-screen.md" },
     { label: "GitHub profile", hint: "link", url: "https://github.com/rotten-guy" },
-    { label: "Root-Me", hint: "training · security", url: "https://www.root-me.org/" },
-    { label: "LeetCode", hint: "training · algorithms", url: "https://leetcode.com/pourriture" },
+    { label: "Root-Me", hint: "training · security", url: "https://www.root-me.org/rotten-guy?lang=en" },
+    { label: "LeetCode", hint: "training · algorithms", url: "https://leetcode.com/u/PoUrRiTuRe/" },
     { label: "source of this site", hint: "repo", url: "https://github.com/rotten-guy/rotten-guy.github.io" },
   ];
   let shown = items, sel = 0;
