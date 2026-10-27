@@ -13,7 +13,7 @@ Personal portfolio of Joshua Gillet (`rotten_guy`, GitHub `PoUrRiTuRe`), served 
 3. **Nebula palette only**: use the CSS variables in `:root` (`--cyan`, `--magenta`, `--text`, `--dim`…), never new accent colors. New UI should look like a piece of the rice (top bar, greeter, kitty, fuzzel, cheatsheet keys).
 4. **Facts only**: project descriptions, numbers and commit hashes come from the real repositories. No invented skills, levels, dates or experience.
 5. **No private information**: no home address, phone number or private email.
-6. **Images**: WebP for screenshots (~1600 px wide), SVG for diagrams. Generated pictures have their generator in `scripts/`.
+6. **Images**: WebP for screenshots (~1600 px wide), SVG for diagrams. Generated pictures keep their generator next to them or in `scripts/`.
 7. **Check before committing**: open the page at desktop and phone width (390 px), no horizontal scroll, no console errors, `prefers-reduced-motion` still readable.
 8. After a change that affects the look, retake `assets/img/preview.webp` and `assets/img/og.png`, and update `README.md`.
 

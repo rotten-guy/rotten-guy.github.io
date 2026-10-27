@@ -101,16 +101,6 @@ const sections = $$("main > section[data-ws]");
   $$(".reveal").forEach((el) => io.observe(el));
 })();
 
-/* ───── project filters ───── */
-$$(".chip").forEach((chip) => chip.addEventListener("click", () => {
-  $$(".chip").forEach((c) => c.classList.toggle("active", c === chip));
-  const f = chip.dataset.filter;
-  $$("#projects [data-kind]").forEach((p) => {
-    p.classList.toggle("hidden", f !== "all" && p.dataset.kind !== f);
-    p.classList.add("in");
-  });
-}));
-
 /* ───── galleries ───── */
 $$("[data-gallery]").forEach((gallery) => {
   const img = $(".shot img", gallery);
@@ -155,12 +145,12 @@ const menu = (() => {
     { label: "contact", hint: "workspace 5", go: "#contact" },
     { label: "rotten_dotfiles", hint: "repo · Hyprland rice", url: "https://github.com/PoUrRiTuRe/dotfiles" },
     { label: "rotten Lily58", hint: "repo · ZMK firmware", url: "https://github.com/PoUrRiTuRe/rotten_lily58_keymap_config" },
-    { label: "SAE 2.03 · Covoit", hint: "repo · PHP / MySQL", url: "https://github.com/PoUrRiTuRe/SAE_2-03" },
     { label: "ZMK dongle guide", hint: "write-up", url: "https://github.com/PoUrRiTuRe/dotfiles/blob/main/docs/zmk-dongle.md" },
     { label: "IKEv2 VPN on Arch", hint: "write-up", url: "https://github.com/PoUrRiTuRe/dotfiles/blob/main/docs/vpn-ikev2-eap.md" },
     { label: "Tablet as a monitor", hint: "write-up", url: "https://github.com/PoUrRiTuRe/dotfiles/blob/main/docs/tablet-screen.md" },
     { label: "GitHub profile", hint: "link", url: "https://github.com/PoUrRiTuRe" },
-    { label: "LeetCode", hint: "link", url: "https://leetcode.com/pourriture" },
+    { label: "Root-Me", hint: "training · security", url: "https://www.root-me.org/" },
+    { label: "LeetCode", hint: "training · algorithms", url: "https://leetcode.com/pourriture" },
     { label: "source of this site", hint: "repo", url: "https://github.com/PoUrRiTuRe/PoUrRiTuRe.github.io" },
   ];
   let shown = items, sel = 0;

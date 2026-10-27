@@ -25,7 +25,7 @@
 | 🐱 | **kitty + fastfetch card** | Arch logo in magenta, colored keys, palette dots and a starship prompt that types real commands |
 | 🌈 | **Animated borders** | The Hyprland border: cyan → magenta gradient rotating at a constant speed, fading in when a card gets focus or the mouse |
 | ⌨️ | **`SUPER + K` menu** | Press `K` anywhere: a fuzzel-like menu to jump to a section, a project or a link (`↑ ↓`, `Enter`, `Esc`) |
-| 🗂️ | **Project windows** | Each project is a window with a screenshot gallery (tabs + lightbox), features, stats and tags. Filter: all / personal / academic |
+| 🗂️ | **Project windows** | Each project is a window with a screenshot gallery (tabs + lightbox), features, stats and tags |
 | 🧩 | **Keycap skills** | Skills are drawn like the shortcut cheatsheet keys; typing a letter presses the matching keycaps |
 | 🌌 | **Starfield** | Twinkling stars on a canvas, with a few cyan and magenta ones, over slowly drifting nebula clouds |
 | 📜 | **`git log` history** | Timeline with real commit hashes from the projects |
@@ -40,8 +40,8 @@
 |---|---|---|
 | [**rotten_dotfiles**](https://github.com/PoUrRiTuRe/dotfiles) | Personal | Arch Linux, Hyprland (Lua), Bash, Python, QML, systemd, PAM, PipeWire |
 | [**rotten Lily58**](https://github.com/PoUrRiTuRe/rotten_lily58_keymap_config) | Personal | C, Zephyr RTOS, ZMK, Devicetree, Python, GitHub Actions |
-| [**SAE 2.03 · Covoit**](https://github.com/PoUrRiTuRe/SAE_2-03) | Academic (BUT R&T) | PHP, MySQL, PDO, HTML / CSS / JS, Apache |
 | Write-ups | Personal | ZMK dongle, IKEv2 VPN, tablet as a monitor, Arch notes (in the dotfiles `docs/`) |
+| Training | In progress | [Root-Me](https://www.root-me.org/) (security challenges) · [LeetCode](https://leetcode.com/pourriture) (algorithms) |
 
 ---
 
@@ -71,8 +71,6 @@ PoUrRiTuRe.github.io/
 ├── script.js                   # starfield, clock, workspaces, SUPER + K menu, galleries
 ├── 404.html
 ├── .nojekyll                   # serve files as they are, no Jekyll
-├── scripts/
-│   └── make-schema.py          # draws assets/img/sae-schema.svg
 └── assets/
     ├── icons/favicon.svg
     └── img/                    # screenshots (webp), keymap SVGs, screens GIF, preview + og image
@@ -99,10 +97,10 @@ GitHub Pages serves the `main` branch root: *Settings* → *Pages* → *Deploy f
 
 - **A project**: copy one `<article class="project win">` block in `index.html`. Gallery tabs take `data-src` / `data-alt`; the first tab must match the `<img>` below it.
 - **Screenshots**: convert to WebP, ~1600 px wide (`convert in.png -resize 1600x -quality 82 out.webp`), into `assets/img/`.
-- **SAE data model**: edit `TABLES` / `LINKS` in `scripts/make-schema.py`, then `python3 scripts/make-schema.py`.
+- **Training**: the `.train` cards in the skills section; the bar width is `.train-bar i { width }` in `style.css`.
 - **`SUPER + K` entries**: the `items` list in `script.js`.
 - **Skills**: `<span class="key">` (cyan) or `<span class="key super">` (magenta = daily use).
-- **History**: `<li>` entries of `.log` in `index.html` (`merge` = magenta dot, `root` = yellow dot).
+- **History**: `<li>` entries of `.log` in `index.html` (`merge` = magenta dot, `root` = yellow dot, `next` = dashed green dot for what is in progress).
 - **Preview images**: `assets/img/preview.webp` (1440 × 900) and `assets/img/og.png` (1200 × 630, link previews) are screenshots of the hero; retake them after a visual change.
 
 ---

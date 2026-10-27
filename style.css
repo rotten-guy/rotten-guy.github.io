@@ -189,16 +189,7 @@ h2 { margin: 0; font: 800 clamp(30px, 5vw, 52px)/1.05 var(--mono); letter-spacin
 @keyframes blink { 50% { opacity: 0; } }
 
 /* ───── projects ───── */
-.filters { display: flex; gap: 8px; margin-left: auto; }
-.chip {
-  padding: 6px 16px; border-radius: 999px; border: 1px solid rgba(0, 240, 255, .35); background: rgba(0, 240, 255, .05);
-  color: var(--dim); font-size: 13px; cursor: pointer; transition: all .25s;
-}
-.chip:hover { color: var(--cyan); border-color: var(--cyan); }
-.chip.active { color: #04121a; background: var(--cyan); border-color: var(--cyan); font-weight: 600; }
-
 .project { margin-bottom: 36px; transition: opacity .4s, transform .4s; }
-.project.hidden, .guides.hidden { display: none; }
 .tag { font-size: 11px; padding: 2px 10px; border-radius: 999px; letter-spacing: .06em; }
 .tag-cyan { color: var(--cyan); border: 1px solid rgba(0, 240, 255, .5); }
 .tag-magenta { color: var(--magenta); border: 1px solid rgba(230, 0, 255, .5); }
@@ -247,6 +238,27 @@ h2 { margin: 0; font: 800 clamp(30px, 5vw, 52px)/1.05 var(--mono); letter-spacin
 .guide b { color: #fff; font: 800 16px var(--display); }
 .guide > span:last-child { color: var(--dim); font-size: 12.5px; line-height: 1.55; }
 .g-ico { font-size: 22px; }
+
+/* ───── training: Root-Me / LeetCode ───── */
+.training { margin-bottom: 36px; }
+.training .path { margin-bottom: 14px; }
+.train-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.train { display: flex; flex-direction: column; gap: 12px; padding: 20px 22px; color: var(--text); transition: transform .25s; }
+.train:hover { color: var(--text); transform: translateY(-4px); }
+.train-head { display: flex; align-items: center; gap: 12px; }
+.train-head b { font: 800 22px var(--display); color: #fff; }
+.train-head .tag { margin-left: auto; }
+.train-ico { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; font: 800 20px var(--mono); background: rgba(7, 9, 20, .7); border: 1px solid var(--line); }
+.train-text { flex: 1; color: var(--dim); font-size: 13.5px; }
+.train-bar { position: relative; height: 8px; border-radius: 999px; overflow: hidden; background: rgba(7, 9, 20, .7); border: 1px solid var(--line); }
+.train-bar i { position: absolute; inset: 0; width: 8%; border-radius: inherit; background: linear-gradient(90deg, var(--cyan), var(--magenta)); box-shadow: 0 0 12px rgba(0, 240, 255, .6); }
+.train-bar i::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, transparent 0 6px, rgba(255, 255, 255, .25) 6px 12px); animation: stripes 1s linear infinite; }
+@keyframes stripes { to { background-position: 17px 0; } }
+.train-foot { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; color: var(--dim); }
+.train-foot > span:last-child { color: var(--cyan); }
+.log li.next::before { border-style: dashed; border-color: var(--green); box-shadow: 0 0 10px rgba(0, 255, 102, .5); }
+.log li.next .hash { color: var(--green); }
+.log li.next b { color: var(--green); }
 
 /* ───── skills: keycaps like the cheatsheet ───── */
 .skill-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
@@ -337,8 +349,7 @@ footer p { margin: 4px 0; }
   .bar { grid-template-columns: 1fr auto; }
   .clock, .pill-dim, .pill-cyan span { display: none; }
   .ws { padding: 0 9px; }
-  .filters { margin-left: 0; }
-  .skill-grid, .guide-grid { grid-template-columns: 1fr; }
+  .skill-grid, .guide-grid, .train-grid { grid-template-columns: 1fr; }
   .project-body { padding: 18px; gap: 24px; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .term { padding: 18px 16px; font-size: 12.5px; }

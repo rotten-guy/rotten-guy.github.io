@@ -58,7 +58,7 @@
     <p class="lead reveal">
       Networks &amp; telecoms student at the <b>IUT of Montbéliard</b> (BUT R&amp;T).
       I like taking systems apart until I understand them, then putting them back together <i>exactly</i> the way I want:
-      Linux desktops, wireless keyboards, web apps and the networks they run on.
+      Linux desktops, wireless keyboards and the networks they run on. Next target: security challenges.
     </p>
     <div class="cta reveal">
       <a class="btn btn-cyan" href="#projects">VIEW PROJECTS <span aria-hidden="true">→</span></a>
@@ -109,15 +109,10 @@
   <div class="section-head reveal">
     <p class="path">~/projects</p>
     <h2 class="grad">PROJECTS</h2>
-    <div class="filters" role="tablist" aria-label="Filter projects">
-      <button class="chip active" data-filter="all" type="button">all</button>
-      <button class="chip" data-filter="personal" type="button">personal</button>
-      <button class="chip" data-filter="academic" type="button">academic</button>
-    </div>
   </div>
 
   <!-- dotfiles -->
-  <article class="project win reveal" data-kind="personal">
+  <article class="project win reveal">
     <div class="win-title"><span class="dots"><i></i><i></i><i></i></span><span>rotten_dotfiles · personal</span><span class="tag tag-cyan">featured</span></div>
     <div class="project-body">
       <div class="gallery" data-gallery>
@@ -154,7 +149,7 @@
   </article>
 
   <!-- lily58 -->
-  <article class="project win reveal" data-kind="personal">
+  <article class="project win reveal">
     <div class="win-title"><span class="dots"><i></i><i></i><i></i></span><span>rotten_lily58 · personal</span><span class="tag tag-magenta">firmware</span></div>
     <div class="project-body reverse">
       <div class="gallery" data-gallery>
@@ -187,38 +182,8 @@
     </div>
   </article>
 
-  <!-- SAE 2.03 -->
-  <article class="project win reveal" data-kind="academic">
-    <div class="win-title"><span class="dots"><i></i><i></i><i></i></span><span>SAE 2.03 · academic</span><span class="tag tag-yellow">BUT R&amp;T</span></div>
-    <div class="project-body">
-      <div class="gallery" data-gallery>
-        <div class="gallery-tabs" role="tablist">
-          <button class="active" type="button" data-src="assets/img/sae-schema.svg" data-alt="Relational data model of the carpooling app">data model</button>
-          <button type="button" data-src="assets/img/sae-accueil.webp" data-alt="Covoit home page once logged in">home</button>
-          <button type="button" data-src="assets/img/sae-sign.webp" data-alt="Covoit sign-up form">sign-up</button>
-          <button type="button" data-src="assets/img/sae-recherche.webp" data-alt="Covoit crew search page">search</button>
-        </div>
-        <button class="shot" type="button" data-zoom><img src="assets/img/sae-schema.svg" alt="Relational data model of the carpooling app" loading="lazy" width="1120" height="780"></button>
-      </div>
-      <div class="project-text">
-        <h3>🚗 Covoit · student carpooling</h3>
-        <p class="sub">SAE 2.03, first-year university project (spring 2026).</p>
-        <p>A web app that lets students of the Portes du Jura campus find each other and share rides to university: fewer costs, fewer cars, more people met. Full stack, from the relational schema to the pages, served by Apache on Ubuntu.</p>
-        <ul class="feat">
-          <li><b>Accounts</b>: sign-up with course, group and sub-group, passwords stored with <code>password_hash</code>, PHP sessions</li>
-          <li><b>Password reset</b> through a one-time 256-bit token (<code>random_bytes</code>) sent as a link</li>
-          <li><b>Offer a ride</b>: vehicle, free seats and weekly schedule</li>
-          <li><b>Search &amp; join a crew</b>, with a duplicate check, then confirm the outbound and return trips</li>
-          <li><b>11-table MySQL schema</b>, every query a PDO prepared statement (no SQL injection)</li>
-        </ul>
-        <div class="tags"><span>PHP</span><span>MySQL</span><span>PDO</span><span>SQL</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Apache</span></div>
-        <a class="btn btn-cyan" href="https://github.com/PoUrRiTuRe/SAE_2-03" target="_blank" rel="noopener">OPEN REPOSITORY <span aria-hidden="true">→</span></a>
-      </div>
-    </div>
-  </article>
-
   <!-- write-ups -->
-  <div class="guides reveal" data-kind="personal">
+  <div class="guides reveal">
     <p class="path">~/dotfiles/docs · write-ups</p>
     <div class="guide-grid">
       <a class="guide win" href="https://github.com/PoUrRiTuRe/dotfiles/blob/main/docs/zmk-dongle.md" target="_blank" rel="noopener">
@@ -244,6 +209,25 @@
     <h2 class="grad">SKILLS</h2>
     <p class="hint">Magenta keys = the ones I use every day.</p>
   </div>
+  <!-- training -->
+  <div class="training">
+    <p class="path reveal">~/training · in progress</p>
+    <div class="train-grid">
+      <a class="train win reveal" href="https://www.root-me.org/" target="_blank" rel="noopener" data-rootme>
+        <span class="train-head"><span class="train-ico c-green">⚑</span><b>Root-Me</b><span class="tag tag-magenta">security</span></span>
+        <span class="train-text">Hacking challenges, one category at a time: web-server, network, cracking, forensics. The security side of a networks &amp; telecoms degree.</span>
+        <span class="train-bar"><i></i></span>
+        <span class="train-foot"><span>status: <b class="c-green">warming up</b></span><span>root-me.org →</span></span>
+      </a>
+      <a class="train win reveal" href="https://leetcode.com/pourriture" target="_blank" rel="noopener">
+        <span class="train-head"><span class="train-ico c-yellow">λ</span><b>LeetCode</b><span class="tag tag-yellow">algorithms</span></span>
+        <span class="train-text">Algorithms and data structures, solved in C and Python, to keep the problem-solving reflexes sharp.</span>
+        <span class="train-bar"><i></i></span>
+        <span class="train-foot"><span>status: <b class="c-yellow">warming up</b></span><span>leetcode.com/pourriture →</span></span>
+      </a>
+    </div>
+  </div>
+
   <div class="skill-grid">
     <div class="card reveal">
       <h3>Networks &amp; systems</h3>
@@ -285,10 +269,10 @@
     <h2 class="grad">HISTORY</h2>
   </div>
   <ol class="log">
+    <li class="reveal next"><span class="hash">HEAD →</span><time>next</time><b>wip(training):</b> Root-Me challenges and LeetCode problems, every week</li>
     <li class="reveal"><span class="hash">808efa0</span><time>2026-10</time><b>feat(lily58):</b> custom nice!view screens, bongo cat with glasses, thug-glasses easter egg</li>
     <li class="reveal"><span class="hash">0a72831</span><time>2026-10</time><b>feat(dotfiles):</b> per-host configs for a second machine (AMD desktop)</li>
     <li class="reveal"><span class="hash">486925a</span><time>2026-09</time><b>init(dotfiles):</b> a backup script that turned into the Nebula rice</li>
-    <li class="reveal merge"><span class="hash">51f4426</span><time>2026-04</time><b>feat(sae-2.03):</b> Covoit, student carpooling web app (PHP / MySQL)</li>
     <li class="reveal"><span class="hash">·······</span><time>2025-09</time><b>start:</b> BUT Networks &amp; Telecoms, IUT of Montbéliard</li>
     <li class="reveal root"><span class="hash">·······</span><time>2024-04</time><b>root:</b> <code>git init</code> · first GitHub account</li>
   </ol>
