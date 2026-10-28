@@ -26,6 +26,7 @@
 | 🌈 | **Animated borders** | The Hyprland border: cyan → magenta gradient rotating at a constant speed, fading in when a card gets focus or the mouse |
 | ⌨️ | **`SUPER + K` menu** | Press `K` anywhere: a fuzzel-like menu to jump to a section, a project or a link (`↑ ↓`, `Enter`, `Esc`) |
 | 🗂️ | **Project windows** | Each project is a window with a screenshot gallery (tabs + lightbox), features, stats and tags |
+| 📈 | **Live training** | Root-Me and typing stats (keybr + Monkeytype) read from `training.json` in the [profile repository](https://github.com/rotten-guy/rotten-guy), redrawn every night: a Lily58 that types "i use arch btw" at my real speed (or whatever the visitor types), and a typing calendar with the minutes of each day on hover / click |
 | 🧩 | **Keycap skills** | Skills are drawn like the shortcut cheatsheet keys; typing a letter presses the matching keycaps |
 | 🌌 | **Starfield** | Twinkling stars on a canvas, with a few cyan and magenta ones, over slowly drifting nebula clouds |
 | 📜 | **`git log` history** | Timeline with real commit hashes from the projects |
@@ -41,7 +42,7 @@
 | [**rotten_dotfiles**](https://github.com/rotten-guy/dotfiles) | Personal | Arch Linux, Hyprland (Lua), Bash, Python, QML, systemd, PAM, PipeWire |
 | [**rotten Lily58**](https://github.com/rotten-guy/rotten_lily58_keymap_config) | Personal | C, Zephyr RTOS, ZMK, Devicetree, Python, GitHub Actions |
 | Write-ups | Personal | ZMK dongle, IKEv2 VPN, tablet as a monitor, Arch notes (in the dotfiles `docs/`) |
-| Training | In progress | [Root-Me](https://www.root-me.org/rotten-guy?lang=en) (security challenges) · [LeetCode](https://leetcode.com/u/rotten-guy/) (algorithms) |
+| Training | Live | [Root-Me](https://www.root-me.org/rotten-guy?lang=en) (security challenges) · typing on [keybr](https://www.keybr.com/profile/752ae7r) and [Monkeytype](https://monkeytype.com/profile/rotten_guy) |
 
 ---
 
@@ -103,7 +104,7 @@ GitHub Pages serves the `main` branch root: *Settings* → *Pages* → *Deploy f
 
 - **A project**: copy one `<article class="project win">` block in `index.html`. Gallery tabs take `data-src` / `data-alt`; the first tab must match the `<img>` below it.
 - **Screenshots**: convert to WebP, ~1600 px wide (`convert in.png -resize 1600x -quality 82 out.webp`), into `assets/img/`.
-- **Training**: the `.train` cards in the skills section; the bar width is `.train-bar i { width }` in `style.css`.
+- **Training**: numbers come from `training.json` (profile repository, `scripts/make-training.py`); the cards, the Lily58 demo and the typing log are filled by the last block of `script.js`. If the file cannot be loaded, the demo and the log hide themselves.
 - **`SUPER + K` entries**: the `items` list in `script.js`.
 - **Skills**: `<span class="key">` (cyan) or `<span class="key super">` (magenta = daily use).
 - **History**: `<li>` entries of `.log` in `index.html` (`merge` = magenta dot, `root` = yellow dot, `next` = dashed green dot for what is in progress).

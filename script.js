@@ -150,7 +150,8 @@ const menu = (() => {
     { label: "Tablet as a monitor", hint: "write-up", url: "https://github.com/rotten-guy/dotfiles/blob/main/docs/tablet-screen.md" },
     { label: "GitHub profile", hint: "link", url: "https://github.com/rotten-guy" },
     { label: "Root-Me", hint: "training · security", url: "https://www.root-me.org/rotten-guy?lang=en" },
-    { label: "LeetCode", hint: "training · algorithms", url: "https://leetcode.com/u/rotten-guy/" },
+    { label: "keybr", hint: "training · typing", url: "https://www.keybr.com/profile/752ae7r" },
+    { label: "Monkeytype", hint: "training · typing", url: "https://monkeytype.com/profile/rotten_guy" },
     { label: "source of this site", hint: "repo", url: "https://github.com/rotten-guy/rotten-guy.github.io" },
   ];
   let shown = items, sel = 0;
@@ -217,3 +218,192 @@ addEventListener("keydown", (e) => {
     });
   }
 });
+
+/* ───── training: live stats from the profile repository ───── */
+(() => {
+  const DATA = "https://raw.githubusercontent.com/rotten-guy/rotten-guy/main/assets/training.json";
+  const GAG = "i use arch btw";
+  const set = (sel, value) => $$(sel).forEach((el) => { el.textContent = value; });
+  const hours = (min) => { const m = Math.round(min); return m >= 60 ? `${Math.floor(m / 60)}h${String(m % 60).padStart(2, "0")}` : `${m} min`; };
+  const iso = (d) => d.toISOString().slice(0, 10);
+
+  // Lily58 geometry, same as the keymap pictures of the dotfiles
+  const STAGGER = [0.5, 0.38, 0.12, 0, 0.12, 0.25], WIDTH = 2 * 7.2 + 2.6;
+  const BASE = ["Esc", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "`", "Tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "-",
+    "Shift", "A", "S", "D", "F", "G", "H", "J", "K", "L", ";", "'", "Ctrl", "Z", "X", "C", "V", "B", "[", "]", "N", "M", ",", ".", "/", "Shift",
+    "Alt", "Super", "LOWER", "Space", "Enter", "RAISE", "Bksp", "Super"];
+  const positions = () => {
+    const left = (c, r) => [c, STAGGER[c] + r, 0];
+    const mirror = ([x, y, rot]) => [WIDTH - x - 1, y, -rot];
+    const pos = [];
+    for (let r = 0; r < 3; r++) {
+      for (let c = 0; c < 6; c++) pos.push(left(c, r));
+      for (let c = 0; c < 6; c++) pos.push(mirror(left(5 - c, r)));
+    }
+    for (let c = 0; c < 6; c++) pos.push(left(c, 3));
+    pos.push([6.05, 2.75, 0], mirror([6.05, 2.75, 0]));
+    for (let c = 0; c < 6; c++) pos.push(mirror(left(5 - c, 3)));
+    const thumbs = [[2.5, 4.1, 0], [3.5, 4.12, 0], [4.5, 4.3, 0], [5.8, 4.3, 30]];
+    return pos.concat(thumbs, thumbs.slice().reverse().map(mirror));
+  };
+
+  const keys = new Map();   // label (upper case) → <g>
+  (() => {
+    const svg = $("#rig-keys"), U = 40, NS = "http://www.w3.org/2000/svg";
+    svg.setAttribute("viewBox", `0 0 ${WIDTH * U} ${5.9 * U}`);
+    positions().forEach(([x, y, rot], i) => {
+      const big = i >= 50 && rot !== 0, w = 0.9 * U, h = (big ? 1.4 : 0.9) * U;
+      const px = (x + 0.05) * U, py = (y + 0.05) * U;
+      const g = document.createElementNS(NS, "g");
+      g.setAttribute("class", "k" + (i >= 50 ? " thumb" : ""));
+      if (rot) g.setAttribute("transform", `rotate(${rot} ${px + w / 2} ${py + h / 2})`);
+      const rect = document.createElementNS(NS, "rect");
+      Object.entries({ x: px, y: py, width: w, height: h, rx: 7 }).forEach(([k, v]) => rect.setAttribute(k, v));
+      const label = document.createElementNS(NS, "text");
+      Object.entries({ x: px + w / 2, y: py + h / 2 + 4, "text-anchor": "middle" }).forEach(([k, v]) => label.setAttribute(k, v));
+      label.textContent = BASE[i];
+      label.setAttribute("class", BASE[i].length > 2 ? "small" : "");
+      g.append(rect, label);
+      svg.append(g);
+      if (!keys.has(BASE[i].toUpperCase())) keys.set(BASE[i].toUpperCase(), g);
+    });
+  })();
+
+  const press = (ch) => {
+    const g = keys.get(ch === " " ? "SPACE" : ch.toUpperCase());
+    if (!g) return;
+    g.classList.add("down");
+    setTimeout(() => g.classList.remove("down"), 110);
+  };
+
+  // the demo types GAG at the real speed, forever; "type something yourself" lets visitors try
+  let wpm = 60, timer = null, demo = true;
+  const typed = $("#rig-typed"), gag = $("#rig-gag");
+  const loop = () => {
+    clearTimeout(timer);
+    if (!demo) return;
+    const step = 60000 / (wpm * 5);
+    let i = 0;
+    typed.textContent = "";
+    gag.classList.remove("show");
+    const next = () => {
+      if (!demo) return;
+      if (i < GAG.length) {
+        press(GAG[i]);
+        typed.textContent += GAG[i++];
+        timer = setTimeout(next, step);
+      } else {
+        gag.classList.add("show");
+        timer = setTimeout(loop, 3200);
+      }
+    };
+    timer = setTimeout(next, 700);
+  };
+  $("#rig-mine").addEventListener("click", (e) => {
+    demo = !demo;
+    e.target.textContent = demo ? "type something yourself" : "back to the demo";
+    gag.classList.remove("show");
+    typed.textContent = "";
+    if (demo) loop();
+  });
+  addEventListener("keydown", (e) => {
+    if (demo || e.ctrlKey || e.metaKey || e.altKey || e.target.matches("input, textarea")) return;
+    if (e.key === "Backspace") { typed.textContent = typed.textContent.slice(0, -1); press("Bksp"); }
+    else if (e.key.length === 1) { typed.textContent = (typed.textContent + e.key).slice(-40); press(e.key); }
+    else return;
+    e.stopPropagation();
+  }, true);
+
+  // typing log: one square per day, from the first lesson (at least 12 months)
+  const drawLog = (data) => {
+    const days = {};
+    Object.entries(data.keybr?.days || {}).forEach(([d, v]) => { days[d] = { min: v.minutes, lessons: v.lessons, tests: 0 }; });
+    Object.entries(data.monkeytype?.days || {}).forEach(([d, n]) => { days[d] = { ...(days[d] || { min: 0, lessons: 0 }), tests: n }; });
+    const today = new Date(new Date().toISOString().slice(0, 10));
+    let start = new Date(today); start.setUTCDate(start.getUTCDate() - 364);
+    const first = Object.keys(days).sort()[0];
+    if (first && new Date(first) < start) start = new Date(first);
+    start.setUTCDate(start.getUTCDate() - start.getUTCDay());
+    const grid = $("#tlog-grid"), tip = $("#tlog-tip"), detail = $("#tlog-detail");
+    const level = (d) => { const t = d ? d.min + d.tests * 0.75 : 0; return t <= 0 ? 0 : t < 5 ? 1 : t < 12 ? 2 : t < 25 ? 3 : 4; };
+    const describe = (date, d) => {
+      const when = new Date(date).toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+      if (!d) return `${when}: no typing, the keyboard was resting`;
+      const parts = [];
+      if (d.min) parts.push(`${hours(d.min)} on keybr (${d.lessons} lessons)`);
+      if (d.tests) parts.push(`${d.tests} Monkeytype test${d.tests > 1 ? "s" : ""}`);
+      return `${when}: ${parts.join(" · ")}`;
+    };
+    grid.innerHTML = "";
+    for (let d = new Date(start); d <= today; d.setUTCDate(d.getUTCDate() + 1)) {
+      const date = iso(d), cell = document.createElement("button");
+      cell.type = "button";
+      cell.className = `l${level(days[date])}`;
+      cell.dataset.date = date;
+      cell.setAttribute("aria-label", describe(date, days[date]));
+      grid.append(cell);
+    }
+    const showTip = (cell) => {
+      tip.textContent = cell.getAttribute("aria-label");
+      tip.hidden = false;
+      const box = cell.getBoundingClientRect(), host = tip.parentElement.getBoundingClientRect();
+      tip.style.left = `${Math.min(Math.max(box.left - host.left + 8, 120), host.width - 120)}px`;
+      tip.style.top = `${box.top - host.top - 10}px`;
+    };
+    grid.addEventListener("mouseover", (e) => { if (e.target.dataset.date) showTip(e.target); });
+    grid.addEventListener("mouseleave", () => { tip.hidden = true; });
+    grid.addEventListener("click", (e) => {
+      if (!e.target.dataset.date) return;
+      $$("#tlog-grid .sel").forEach((c) => c.classList.remove("sel"));
+      e.target.classList.add("sel");
+      detail.textContent = e.target.getAttribute("aria-label");
+    });
+    const scroller = $(".tlog-scroll");
+    requestAnimationFrame(() => { scroller.scrollLeft = scroller.scrollWidth; });  // newest days first in view
+    const total = Object.values(days).reduce((s, d) => s + d.min, 0);
+    set('[data-ty="days"]', `${Object.keys(days).length} days · ${hours(total)}`);
+    return days;
+  };
+
+  const streak = (days) => {
+    let n = 0;
+    const d = new Date(new Date().toISOString().slice(0, 10));
+    if (!days[iso(d)]) d.setUTCDate(d.getUTCDate() - 1);
+    while (days[iso(d)]) { n++; d.setUTCDate(d.getUTCDate() - 1); }
+    return n;
+  };
+
+  fetch(DATA, { cache: "no-cache" })
+    .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+    .then((data) => {
+      const kb = data.keybr || {}, mt = data.monkeytype || {}, rm = data.rootme;
+      const pb = mt.pb || {}, mode = ["60", "30", "15"].find((m) => pb[m]);
+      wpm = mode ? pb[mode].wpm : kb.wpm_avg || 60;
+      const best = Math.max(kb.wpm_best || 0, ...Object.values(pb).map((v) => v.wpm));
+      set('[data-ty="avg"]', Math.round(kb.wpm_avg || 0));
+      set('[data-ty="best"]', Math.round(best));
+      set('[data-ty="time"]', hours((kb.minutes || 0) + (mt.minutes || 0)));
+      set('[data-ty="speed"]', `${Math.round(wpm)} wpm`);
+      set('[data-ty="speed2"]', `${Math.round(wpm)} WPM`);
+      set('[data-ty="source"]', mode ? `Monkeytype ${mode} s record` : "keybr average");
+      const days = drawLog(data);
+      const s = streak(days);
+      set('[data-ty="streak"]', s ? `${s} day${s > 1 ? "s" : ""}` : "starts again today");
+      if (rm) {
+        set('[data-rm="score"]', rm.score);
+        set('[data-rm="solved"]', rm.solved);
+        set('[data-rm="position"]', `#${rm.position}`);
+        set('[data-rm="status"]', rm.recent?.[0] ? `last: ${rm.recent[0].title}` : "first flag soon");
+        if (rm.rank) set('[data-rm="rank"]', rm.rank);
+      } else {
+        set('[data-rm="score"]', "0");
+        set('[data-rm="solved"]', "0");
+        set('[data-rm="position"]', "soon");
+      }
+      if (!reducedMotion) loop(); else typed.textContent = GAG;
+    })
+    .catch(() => {
+      $("#training").classList.add("offline");
+      typed.textContent = GAG;
+    });
+})();

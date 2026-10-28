@@ -212,22 +212,41 @@
     <h2 class="grad">SKILLS</h2>
     <p class="hint">Magenta keys = the ones I use every day.</p>
   </div>
-  <!-- training -->
-  <div class="training">
-    <p class="path reveal">~/training · in progress</p>
+  <!-- training: filled from training.json (profile repo, redrawn every night) -->
+  <div class="training" id="training">
+    <p class="path reveal">~/training · live, updated every night</p>
     <div class="train-grid">
-      <a class="train win reveal" href="https://www.root-me.org/rotten-guy?lang=en" target="_blank" rel="noopener" data-rootme>
-        <span class="train-head"><span class="train-ico c-green">⚑</span><b>Root-Me</b><span class="tag tag-magenta">security</span></span>
+      <a class="train win reveal" href="https://www.root-me.org/rotten-guy?lang=en" target="_blank" rel="noopener">
+        <span class="train-head"><span class="train-ico c-green">⚑</span><b>Root-Me</b><span class="tag tag-magenta" data-rm="rank">security</span></span>
         <span class="train-text">Hacking challenges, one category at a time: web-server, network, cracking, forensics. The security side of a networks &amp; telecoms degree.</span>
-        <span class="train-bar"><i></i></span>
-        <span class="train-foot"><span>status: <b class="c-green">warming up</b></span><span>root-me.org/rotten-guy →</span></span>
+        <span class="train-stats"><span><b data-rm="score">…</b><small>points</small></span><span><b data-rm="solved">…</b><small>solved</small></span><span><b data-rm="position">…</b><small>position</small></span></span>
+        <span class="train-foot"><span>status: <b class="c-green" data-rm="status">warming up</b></span><span>root-me.org/rotten-guy →</span></span>
       </a>
-      <a class="train win reveal" href="https://leetcode.com/u/rotten-guy/" target="_blank" rel="noopener">
-        <span class="train-head"><span class="train-ico c-yellow">λ</span><b>LeetCode</b><span class="tag tag-yellow">algorithms</span></span>
-        <span class="train-text">Algorithms and data structures, solved in C and Python, to keep the problem-solving reflexes sharp.</span>
-        <span class="train-bar"><i></i></span>
-        <span class="train-foot"><span>status: <b class="c-yellow">warming up</b></span><span>leetcode.com/u/rotten-guy →</span></span>
+      <a class="train win reveal" href="https://www.keybr.com/profile/752ae7r" target="_blank" rel="noopener">
+        <span class="train-head"><span class="train-ico c-yellow">⌨</span><b>Typing</b><span class="tag tag-yellow">on a Lily58</span></span>
+        <span class="train-text">At least 10 minutes a day on keybr and Monkeytype, on the keyboard I built and flashed myself.</span>
+        <span class="train-stats"><span><b data-ty="avg">…</b><small>avg wpm</small></span><span><b data-ty="best">…</b><small>best wpm</small></span><span><b data-ty="time">…</b><small>typing</small></span></span>
+        <span class="train-foot"><span>streak: <b class="c-yellow" data-ty="streak">…</b></span><span>keybr.com/profile →</span></span>
       </a>
+    </div>
+
+    <div class="rig win reveal" aria-label="My Lily58 typing a sentence at my real speed">
+      <div class="win-title"><span class="dots"><i></i><i></i><i></i></span><span>lily58 · live demo</span><span class="tag tag-cyan" data-ty="speed">… wpm</span></div>
+      <div class="rig-body">
+        <div class="rig-line"><span class="c-green">❯</span> <span id="rig-typed"></span><span class="caret"></span><span class="rig-gag" id="rig-gag">0 typos · nobody asked</span></div>
+        <svg id="rig-keys" class="rig-keys" role="img" aria-label="Lily58 keyboard"></svg>
+        <p class="rig-note">Typed at <b data-ty="speed2">…</b>, my <span data-ty="source">average</span> speed. <button type="button" class="chip-mini" id="rig-mine">type something yourself</button></p>
+      </div>
+    </div>
+
+    <div class="tlog win reveal">
+      <div class="win-title"><span class="dots"><i></i><i></i><i></i></span><span>typing log · hover or click a day</span><span class="tag tag-magenta" data-ty="days">…</span></div>
+      <div class="tlog-body">
+        <div class="tlog-scroll"><div class="tlog-grid" id="tlog-grid"></div></div>
+        <div class="tlog-foot"><p id="tlog-detail">Pick a day to see how long I typed.</p>
+          <span class="tlog-legend">less <i class="l0"></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i> more</span></div>
+      </div>
+      <div class="tlog-tip" id="tlog-tip" hidden></div>
     </div>
   </div>
 
@@ -272,7 +291,7 @@
     <h2 class="grad">HISTORY</h2>
   </div>
   <ol class="log">
-    <li class="reveal next"><span class="hash">HEAD →</span><time>next</time><b>wip(training):</b> Root-Me challenges and LeetCode problems, every week</li>
+    <li class="reveal next"><span class="hash">HEAD →</span><time>next</time><b>wip(training):</b> Root-Me challenges and 10 minutes of typing, every day</li>
     <li class="reveal"><span class="hash">808efa0</span><time>2026-10</time><b>feat(lily58):</b> custom nice!view screens, bongo cat with glasses, thug-glasses easter egg</li>
     <li class="reveal"><span class="hash">0a72831</span><time>2026-10</time><b>feat(dotfiles):</b> per-host configs for a second machine (AMD desktop)</li>
     <li class="reveal"><span class="hash">486925a</span><time>2026-09</time><b>init(dotfiles):</b> a backup script that turned into the Nebula rice</li>
@@ -294,7 +313,7 @@
     </div>
     <div class="socials">
       <a href="https://github.com/rotten-guy" target="_blank" rel="noopener">github.com/rotten-guy</a>
-      <a href="https://leetcode.com/u/rotten-guy/" target="_blank" rel="noopener">leetcode.com/u/rotten-guy</a>
+      <a href="https://www.root-me.org/rotten-guy?lang=en" target="_blank" rel="noopener">root-me.org/rotten-guy</a>
     </div>
   </div>
 </section>
