@@ -282,40 +282,62 @@ addEventListener("keydown", (e) => {
       setTimeout(() => g.classList.remove("down"), 110);
     };
     if (ch === " ") return hit("SPACE");
+    if (ch.length > 1) return hit(ch.toUpperCase());        // a key name: Ctrl, Bksp…
     if (/[A-Z]/.test(ch)) hit("SHIFT");
     hit(ch.toUpperCase());
   };
 
-  let wpm = 60, timer = null, demo = true, phrase = 0;
+  let wpm = 60, timer = null, demo = true, phrase = 0, erased = 0;
   const typed = $("#rig-typed"), gag = $("#rig-gag");
-  const loop = () => {
+  const wait = (ms) => new Promise((done) => { timer = setTimeout(done, ms); });
+  // types a phrase, shows its punchline, then erases it like a human would:
+  // Ctrl + A then Backspace, or Backspace held down (one phrase each)
+  const loop = async () => {
     clearTimeout(timer);
-    if (!demo) return;
+    const run = ++loop.run;
+    const alive = () => demo && run === loop.run;
     const step = 60000 / (wpm * 5);
-    const [line, punchline] = PHRASES[phrase];
-    phrase = (phrase + 1) % PHRASES.length;
-    let i = 0;
-    typed.textContent = "";
-    gag.classList.remove("show");
-    gag.textContent = punchline;
-    const next = () => {
-      if (!demo) return;
-      if (i < line.length) {
-        press(line[i]);
-        typed.textContent += line[i++];
-        timer = setTimeout(next, step);
-      } else {
-        gag.classList.add("show");
-        timer = setTimeout(loop, 3200);
+    while (alive()) {
+      const [line, punchline] = PHRASES[phrase];
+      const selectAll = erased++ % 2 === 0;   // alternate the two ways to erase
+      phrase = (phrase + 1) % PHRASES.length;
+      typed.textContent = "";
+      gag.textContent = punchline;
+      await wait(700);
+      for (const ch of line) {
+        if (!alive()) return;
+        press(ch);
+        typed.textContent += ch;
+        await wait(step);
       }
-    };
-    timer = setTimeout(next, 700);
+      gag.classList.add("show");
+      await wait(2600);
+      if (!alive()) return;
+      gag.classList.remove("show");
+      if (selectAll) {
+        press("Ctrl"); press("a");
+        typed.classList.add("selected");
+        await wait(450);
+        press("Bksp");
+        typed.classList.remove("selected");
+        typed.textContent = "";
+      } else {
+        while (typed.textContent && alive()) {
+          press("Bksp");
+          typed.textContent = typed.textContent.slice(0, -1);
+          await wait(45);
+        }
+      }
+    }
   };
+  loop.run = 0;
   $("#rig-mine").addEventListener("click", (e) => {
     demo = !demo;
     e.target.textContent = demo ? "type something yourself" : "back to the demo";
     gag.classList.remove("show");
+    typed.classList.remove("selected");
     typed.textContent = "";
+    loop.run++;
     if (demo) loop();
   });
   addEventListener("keydown", (e) => {

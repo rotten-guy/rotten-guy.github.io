@@ -262,6 +262,7 @@ h2 { margin: 0; font: 800 clamp(30px, 5vw, 52px)/1.05 var(--mono); letter-spacin
 .rig-body { padding: 20px 24px 18px; }
 .rig-line { position: relative; display: flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 14px; border-radius: 10px; background: rgba(7, 9, 20, .8); border: 1px solid var(--line); font-size: 15px; color: #fff; white-space: pre; overflow: hidden; }
 .rig-line .caret { margin-left: -6px; }
+.rig-line #rig-typed.selected { background: rgba(0, 240, 255, .35); color: #fff; border-radius: 3px; }
 .rig-gag { margin-left: auto; color: var(--magenta); font-size: 12px; font-weight: 600; opacity: 0; transition: opacity .3s; white-space: nowrap; }
 .rig-gag.show { opacity: 1; }
 .rig-keys { display: block; width: 100%; max-width: 760px; margin: 18px auto 6px; }
