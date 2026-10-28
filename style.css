@@ -391,7 +391,8 @@ footer p { margin: 4px 0; }
   .clock, .pill-dim, .pill-cyan span { display: none; }
   .ws { padding: 0 9px; }
   .skill-grid, .guide-grid, .train-grid { grid-template-columns: 1fr; }
-  .rig-gag { display: none; }
+  .rig-line { flex-wrap: wrap; padding: 8px 12px; font-size: 14px; }
+  .rig-gag { flex-basis: 100%; margin-left: 0; font-size: 11.5px; }
   .rig-body, .tlog-body { padding: 14px; }
   .train-foot { flex-direction: column; gap: 4px; }
   .project-body { padding: 18px; gap: 24px; }
@@ -404,6 +405,16 @@ footer p { margin: 4px 0; }
   .lock-actions { grid-template-columns: 1fr; }
   .user-pill { height: 46px; }
   section { padding-top: 90px; }
+}
+@media (max-width: 720px) {
+  .win-title > span:nth-child(2) { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}
+@media (max-width: 380px) {
+  .bar { gap: 6px; padding-left: 10px; padding-right: 10px; }
+  .workspaces { gap: 4px; }
+  .ws { padding: 0 7px; }
+  .brand { margin-right: 2px; }
+  #open-menu { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }

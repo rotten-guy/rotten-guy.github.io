@@ -222,7 +222,12 @@ addEventListener("keydown", (e) => {
 /* ───── training: live stats from the profile repository ───── */
 (() => {
   const DATA = "https://raw.githubusercontent.com/rotten-guy/rotten-guy/main/assets/training.json";
-  const GAG = "i use arch btw";
+  // the demo loops over these, at my real speed; each one ends with its own punchline
+  const PHRASES = [
+    ["i use arch btw", "0 typos · nobody asked"],
+    ["sudo pacman -Syu", "312 packages · pray for the reboot"],
+    ["ping -c 1 8.8.8.8", "64 bytes · the internet still exists"],
+  ];
   const set = (sel, value) => $$(sel).forEach((el) => { el.textContent = value; });
   const hours = (min) => { const m = Math.round(min); return m >= 60 ? `${Math.floor(m / 60)}h${String(m % 60).padStart(2, "0")}` : `${m} min`; };
   const iso = (d) => d.toISOString().slice(0, 10);
@@ -270,27 +275,34 @@ addEventListener("keydown", (e) => {
   })();
 
   const press = (ch) => {
-    const g = keys.get(ch === " " ? "SPACE" : ch.toUpperCase());
-    if (!g) return;
-    g.classList.add("down");
-    setTimeout(() => g.classList.remove("down"), 110);
+    const hit = (name) => {
+      const g = keys.get(name);
+      if (!g) return;
+      g.classList.add("down");
+      setTimeout(() => g.classList.remove("down"), 110);
+    };
+    if (ch === " ") return hit("SPACE");
+    if (/[A-Z]/.test(ch)) hit("SHIFT");
+    hit(ch.toUpperCase());
   };
 
-  // the demo types GAG at the real speed, forever; "type something yourself" lets visitors try
-  let wpm = 60, timer = null, demo = true;
+  let wpm = 60, timer = null, demo = true, phrase = 0;
   const typed = $("#rig-typed"), gag = $("#rig-gag");
   const loop = () => {
     clearTimeout(timer);
     if (!demo) return;
     const step = 60000 / (wpm * 5);
+    const [line, punchline] = PHRASES[phrase];
+    phrase = (phrase + 1) % PHRASES.length;
     let i = 0;
     typed.textContent = "";
     gag.classList.remove("show");
+    gag.textContent = punchline;
     const next = () => {
       if (!demo) return;
-      if (i < GAG.length) {
-        press(GAG[i]);
-        typed.textContent += GAG[i++];
+      if (i < line.length) {
+        press(line[i]);
+        typed.textContent += line[i++];
         timer = setTimeout(next, step);
       } else {
         gag.classList.add("show");
@@ -400,10 +412,10 @@ addEventListener("keydown", (e) => {
         set('[data-rm="solved"]', "0");
         set('[data-rm="position"]', "soon");
       }
-      if (!reducedMotion) loop(); else typed.textContent = GAG;
+      if (!reducedMotion) loop(); else typed.textContent = PHRASES[0][0];
     })
     .catch(() => {
       $("#training").classList.add("offline");
-      typed.textContent = GAG;
+      typed.textContent = PHRASES[0][0];
     });
 })();
