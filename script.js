@@ -236,6 +236,8 @@ addEventListener("keydown", (e) => {
   const set = (sel, value) => $$(sel).forEach((el) => { el.textContent = value; });
   const hours = (min) => { const m = Math.round(min); return m >= 60 ? `${Math.floor(m / 60)}h${String(m % 60).padStart(2, "0")}` : `${m} min`; };
   const iso = (d) => d.toISOString().slice(0, 10);
+  // days in training.json are counted in Paris time, so "today" is too
+  const todayParis = () => new Date(new Date().toLocaleDateString("sv-SE", { timeZone: "Europe/Paris" }));
 
   // Lily58 geometry, same as the keymap pictures of the dotfiles
   const STAGGER = [0.5, 0.38, 0.12, 0, 0.12, 0.25], WIDTH = 2 * 7.2 + 2.6;
@@ -358,7 +360,7 @@ addEventListener("keydown", (e) => {
     const days = {};
     Object.entries(data.keybr?.days || {}).forEach(([d, v]) => { days[d] = { min: v.minutes, lessons: v.lessons, tests: 0 }; });
     Object.entries(data.monkeytype?.days || {}).forEach(([d, n]) => { days[d] = { ...(days[d] || { min: 0, lessons: 0 }), tests: n }; });
-    const today = new Date(new Date().toISOString().slice(0, 10));
+    const today = todayParis();
     let start = new Date(today); start.setUTCDate(start.getUTCDate() - 364);
     const first = Object.keys(days).sort()[0];
     if (first && new Date(first) < start) start = new Date(first);
@@ -406,7 +408,7 @@ addEventListener("keydown", (e) => {
 
   const streak = (days) => {
     let n = 0;
-    const d = new Date(new Date().toISOString().slice(0, 10));
+    const d = todayParis();
     if (!days[iso(d)]) d.setUTCDate(d.getUTCDate() - 1);
     while (days[iso(d)]) { n++; d.setUTCDate(d.getUTCDate() - 1); }
     return n;

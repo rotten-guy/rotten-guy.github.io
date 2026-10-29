@@ -26,7 +26,7 @@
 | 🌈 | **Animated borders** | The Hyprland border: cyan → magenta gradient rotating at a constant speed, fading in when a card gets focus or the mouse |
 | ⌨️ | **`SUPER + K` menu** | Press `K` anywhere: a fuzzel-like menu to jump to a section, a project or a link (`↑ ↓`, `Enter`, `Esc`) |
 | 🗂️ | **Project windows** | Each project is a window with a screenshot gallery (tabs + lightbox), features, stats and tags |
-| 📈 | **Live training** | Root-Me and typing stats (keybr + Monkeytype) read from `training.json` in the [profile repository](https://github.com/rotten-guy/rotten-guy), redrawn every night: a Lily58 that loops over three phrases (`i use arch btw`, `sudo pacman -Syu`, `ping -c 1 8.8.8.8`) at my real speed (or whatever the visitor types), and a typing calendar with the minutes of each day on hover / click |
+| 📈 | **Live training** | Root-Me and typing stats (keybr + Monkeytype) read from `training.json` in the [profile repository](https://github.com/rotten-guy/rotten-guy), redrawn every hour: a Lily58 that loops over three phrases (`i use arch btw`, `sudo pacman -Syu`, `ping -c 1 8.8.8.8`) at my real speed (or whatever the visitor types), and a typing calendar with the minutes of each day on hover / click |
 | 🧩 | **Keycap skills** | Skills are drawn like the shortcut cheatsheet keys; typing a letter presses the matching keycaps |
 | 🌌 | **Starfield** | Twinkling stars on a canvas, with a few cyan and magenta ones, over slowly drifting nebula clouds |
 | 📜 | **`git log` history** | Timeline with real commit hashes from the projects |
