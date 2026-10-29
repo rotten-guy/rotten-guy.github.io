@@ -30,7 +30,7 @@
 | 🧩 | **Keycap skills** | Skills are drawn like the shortcut cheatsheet keys; typing a letter presses the matching keycaps |
 | 🌌 | **Starfield** | Twinkling stars on a canvas, with a few cyan and magenta ones, over slowly drifting nebula clouds |
 | 📜 | **`git log` history** | Timeline with real commit hashes from the projects |
-| 📱 | **Responsive** | Works from 320 px wide; animations off with `prefers-reduced-motion` |
+| 📱 | **Responsive** | Works from 320 px wide. When the device asks for less motion (`prefers-reduced-motion`), a calm mode stops the flicker, the drifting nebula and the fly-ins but keeps the typing; `SUPER + K` → *animations* switches modes (remembered in the browser) |
 | 🚫 | **404 page** | `hyprctl dispatch workspace 404` |
 
 ---

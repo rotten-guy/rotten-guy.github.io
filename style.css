@@ -417,7 +417,9 @@ footer p { margin: 4px 0; }
   .brand { margin-right: 2px; }
   #open-menu { display: none; }
 }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-  .reveal { opacity: 1; transform: none; }
-}
+/* calm mode (device asks for less motion): no flicker, no drifting, no fly-in; typing and a slow border stay */
+html[data-motion="calm"] { scroll-behavior: auto; }
+html[data-motion="calm"] .nebula span,
+html[data-motion="calm"] .neon-magenta { animation: none; }
+html[data-motion="calm"] .win::before { animation-duration: 40s; }
+html[data-motion="calm"] .reveal { opacity: 1; transform: none; transition: none; }

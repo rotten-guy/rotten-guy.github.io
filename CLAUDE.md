@@ -14,7 +14,7 @@ Personal portfolio of Joshua Gillet (`rotten_guy`, GitHub `rotten-guy`, formerly
 4. **Facts only**: project descriptions, numbers and commit hashes come from the real repositories. No invented skills, levels, dates or experience.
 5. **No private information**: no home address, phone number or private email.
 6. **Images**: WebP for screenshots (~1600 px wide), SVG for diagrams. Generated pictures keep their generator next to them or in `scripts/`.
-7. **Check before committing**: open the page at desktop and phone width (390 px), no horizontal scroll, no console errors, `prefers-reduced-motion` still readable.
+7. **Check before committing**: open the page at desktop and phone width (390 px), no horizontal scroll, no console errors, calm mode (`prefers-reduced-motion`, `html[data-motion="calm"]`) still readable and still typing.
 8. After a change that affects the look, retake `assets/img/preview.webp` and `assets/img/og.png`, and update `README.md`.
 
 ## Workflow

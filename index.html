@@ -18,7 +18,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;0,800;1,400&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=202610281529">
+<script>
+  // "calm" = the device asks for less motion, unless the visitor chose otherwise in the SUPER + K menu
+  (function () {
+    var m = null;
+    try { m = localStorage.getItem("motion"); } catch (e) {}
+    document.documentElement.dataset.motion = m || (matchMedia("(prefers-reduced-motion: reduce)").matches ? "calm" : "full");
+  })();
+</script>
+<link rel="stylesheet" href="style.css?v=202610290750">
 </head>
 <body>
 <canvas id="stars" aria-hidden="true"></canvas>
@@ -336,6 +344,6 @@
 <!-- lightbox -->
 <div class="lightbox" id="lightbox" hidden><img alt=""><button type="button" aria-label="Close">✕</button></div>
 
-<script src="script.js?v=202610281529" defer></script>
+<script src="script.js?v=202610290750" defer></script>
 </body>
 </html>

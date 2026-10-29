@@ -3,7 +3,8 @@
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
-const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+// set in <head>: "calm" when the device asks for less motion (twinkling, drifting and smooth scrolling stop, typing goes on)
+const reducedMotion = document.documentElement.dataset.motion === "calm";
 
 /* ───── starfield ───── */
 (() => {
@@ -66,7 +67,6 @@ const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
     "west build -b nice_nano_v2",
     "git push origin main",
   ];
-  if (reducedMotion) { el.textContent = commands[0]; return; }
   let i = 0, j = 0, deleting = false;
   const step = () => {
     const cmd = commands[i];
@@ -153,6 +153,10 @@ const menu = (() => {
     { label: "keybr", hint: "training · typing", url: "https://www.keybr.com/profile/752ae7r" },
     { label: "Monkeytype", hint: "training · typing", url: "https://monkeytype.com/profile/rotten_guy" },
     { label: "source of this site", hint: "repo", url: "https://github.com/rotten-guy/rotten-guy.github.io" },
+    { label: reducedMotion ? "animations: turn them all on" : "animations: calm mode", hint: "setting", run: () => {
+      try { localStorage.setItem("motion", reducedMotion ? "full" : "calm"); } catch (e) {}
+      location.reload();
+    } },
   ];
   let shown = items, sel = 0;
   const render = () => {
@@ -180,6 +184,7 @@ const menu = (() => {
   const close = () => { root.hidden = true; };
   const run = (it) => {
     close();
+    if (it.run) return it.run();
     if (it.go) $(it.go).scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
     else window.open(it.url, "_blank", "noopener");
   };
@@ -434,7 +439,7 @@ addEventListener("keydown", (e) => {
         set('[data-rm="solved"]', "0");
         set('[data-rm="position"]', "soon");
       }
-      if (!reducedMotion) loop(); else typed.textContent = PHRASES[0][0];
+      loop();
     })
     .catch(() => {
       $("#training").classList.add("offline");
