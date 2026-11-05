@@ -371,19 +371,35 @@ addEventListener("keydown", (e) => {
       const when = new Date(date).toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
       if (!d) return `${when}: no typing, the keyboard was resting`;
       const parts = [];
-      if (d.min) parts.push(`${hours(d.min)} on keybr (${d.lessons} lessons)`);
+      if (d.min) parts.push(`${hours(d.min)} on keybr (${d.lessons} lesson${d.lessons > 1 ? "s" : ""})`);
       if (d.tests) parts.push(`${d.tests} Monkeytype test${d.tests > 1 ? "s" : ""}`);
       return `${when}: ${parts.join(" · ")}`;
     };
     grid.innerHTML = "";
-    for (let d = new Date(start); d <= today; d.setUTCDate(d.getUTCDate() + 1)) {
+    const months = $("#tlog-months");
+    months.innerHTML = "";
+    const todayIso = iso(today);
+    for (let d = new Date(start), i = 0; d <= today; d.setUTCDate(d.getUTCDate() + 1), i++) {
       const date = iso(d), cell = document.createElement("button");
       cell.type = "button";
-      cell.className = `l${level(days[date])}`;
+      cell.className = `l${level(days[date])}` + (date === todayIso ? " today" : "");
       cell.dataset.date = date;
-      cell.setAttribute("aria-label", describe(date, days[date]));
+      cell.setAttribute("aria-label", describe(date, days[date]) + (date === todayIso ? " (today)" : ""));
       grid.append(cell);
+      if (i % 7 === 0) {          // one label slot per week column, filled when a month starts that week
+        const slot = document.createElement("span");
+        const end = new Date(d); end.setUTCDate(end.getUTCDate() + 6);
+        if (i === 0 || end.getUTCMonth() !== d.getUTCMonth() || d.getUTCDate() === 1) {
+          const m = d.getUTCDate() === 1 || i === 0 ? d : end;
+          slot.textContent = m.toLocaleDateString("en-GB", { month: "short", timeZone: "UTC" }) + (m.getUTCMonth() === 0 || i === 0 ? ` ${m.getUTCFullYear()}` : "");
+        }
+        months.append(slot);
+      }
     }
+    // default footer: the last session and how fresh the data is
+    const last = Object.keys(days).filter((d) => days[d].min || days[d].tests).sort().pop();
+    detail.textContent = (last ? `Last session ${describe(last, days[last]).replace(/^/, "")}` : "No session yet")
+      + ` · data updated ${data.updated || "?"}`;
     const showTip = (cell) => {
       tip.textContent = cell.getAttribute("aria-label");
       tip.hidden = false;
@@ -400,7 +416,9 @@ addEventListener("keydown", (e) => {
       detail.textContent = e.target.getAttribute("aria-label");
     });
     const scroller = $(".tlog-scroll");
-    requestAnimationFrame(() => { scroller.scrollLeft = scroller.scrollWidth; });  // newest days first in view
+    const toEnd = () => { scroller.scrollLeft = scroller.scrollWidth; };    // newest days (this week) in view
+    requestAnimationFrame(toEnd);
+    setTimeout(toEnd, 600);
     const total = Object.values(days).reduce((s, d) => s + d.min, 0);
     set('[data-ty="days"]', `${Object.keys(days).length} days · ${hours(total)}`);
     return days;

@@ -280,7 +280,11 @@ h2 { margin: 0; font: 800 clamp(30px, 5vw, 52px)/1.05 var(--mono); letter-spacin
 .tlog { position: relative; }
 .tlog-body { padding: 18px 22px 16px; }
 .tlog-scroll { overflow-x: auto; padding-bottom: 6px; scrollbar-color: rgba(0, 240, 255, .3) transparent; }
-.tlog-grid { display: grid; grid-template-rows: repeat(7, 14px); grid-auto-flow: column; grid-auto-columns: 14px; gap: 4px; width: max-content; margin: 0 auto; }
+.tlog-wrap { width: max-content; margin: 0 auto; }
+.tlog-months { display: grid; grid-auto-flow: column; grid-auto-columns: 14px; gap: 4px; height: 16px; margin-bottom: 4px; font-size: 10px; color: var(--dim); }
+.tlog-months span { white-space: nowrap; overflow: visible; }
+.tlog-grid { display: grid; grid-template-rows: repeat(7, 14px); grid-auto-flow: column; grid-auto-columns: 14px; gap: 4px; }
+.tlog-grid button.today { outline: 2px solid var(--cyan); outline-offset: 1px; box-shadow: 0 0 10px rgba(0, 240, 255, .6); }
 .tlog-grid button, .tlog-legend i { width: 14px; height: 14px; padding: 0; border: 0; border-radius: 4px; cursor: pointer; }
 .l0 { background: #161b3a; } .l1 { background: rgba(0, 240, 255, .28); } .l2 { background: rgba(0, 240, 255, .6); }
 .l3 { background: #7a6cff; } .l4 { background: var(--magenta); box-shadow: 0 0 8px rgba(230, 0, 255, .6); }
