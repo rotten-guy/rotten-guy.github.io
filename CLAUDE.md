@@ -4,7 +4,7 @@ Guidelines for AI-assisted changes to this repository. Read `README.md` first.
 
 ## Project
 
-Personal portfolio of Joshua Gillet (`rotten_guy`, GitHub `rotten-guy`, formerly `PoUrRiTuRe`), served by GitHub Pages at https://rotten-guy.github.io from the `main` branch root. Its look copies the "Nebula" Hyprland rice of the [dotfiles](https://github.com/rotten-guy/dotfiles): night-blue background, cyan / magenta neon, JetBrains Mono.
+Personal portfolio of Joshua Gillet (`rotten_guy`, GitHub `rotten-guy`, formerly `PoUrRiTuRe`), served by GitHub Pages at https://rotten-guy.com (custom domain, `CNAME` file; `rotten-guy.github.io` redirects there) from the `main` branch root. Its look copies the "Nebula" Hyprland rice of the [dotfiles](https://github.com/rotten-guy/dotfiles): night-blue background, cyan / magenta neon, JetBrains Mono.
 
 ## Conventions
 

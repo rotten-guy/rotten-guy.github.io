@@ -6,7 +6,7 @@
 
 *Plain HTML · CSS · JS · no framework, no build step · GitHub Pages*
 
-**[rotten-guy.github.io](https://rotten-guy.github.io)**
+**[rotten-guy.com](https://rotten-guy.com)**
 
 </div>
 
@@ -96,7 +96,19 @@ python3 -m http.server 8000
 
 ## 🌐 Deploying
 
-GitHub Pages serves the `main` branch root: *Settings* → *Pages* → *Deploy from a branch* → `main` / `/ (root)`. Every push to `main` is online a minute later at **https://rotten-guy.github.io**.
+GitHub Pages serves the `main` branch root: *Settings* → *Pages* → *Deploy from a branch* → `main` / `/ (root)`. Every push to `main` is online a minute later at **https://rotten-guy.com**.
+
+### Custom domain
+
+The `CNAME` file holds `rotten-guy.com`; `rotten-guy.github.io` redirects to it. DNS is managed at OVH:
+
+| Name | Type | Target |
+|---|---|---|
+| `@` | A | `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` |
+| `@` | AAAA | `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153` |
+| `www` | CNAME | `rotten-guy.github.io.` |
+
+The zone's `*` wildcard points to a private homelab (Tailscale IP), not to GitHub, so it can't be used to take over a subdomain through Pages. *Enforce HTTPS* is on in the Pages settings.
 
 ---
 
